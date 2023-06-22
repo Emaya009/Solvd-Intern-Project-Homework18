@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="pharmacy.myBatis.MapperDAO.DoctorsMapperDAO">
+
+    <select id="getDoctor" resultMap="doctorResultMap">
+        SELECT * FROM Doctors WHERE doctor_id = #{doctor_id}
+    </select>
+
+    <insert id="insertDoctor" parameterType="Doctors">
+        INSERT INTO Doctors (doctor_id, address_id1, first_name, last_name, phone, email)
+        VALUES (#{doctor_id}, #{address_id1}, #{first_name}, #{last_name}, #{phone}, #{email})
+    </insert>
+
+    <update id="updateDoctor" parameterType="Doctors">
+        UPDATE Doctors SET address_id1 = #{address_id1}, first_name = #{first_name}, last_name = #{last_name}, phone = #{phone}, email = #{email})
+        WHERE doctor_id = #{doctor_id}
+    </update>
+
+    <delete id="deleteDoctor" parameterType="Doctors">
+        DELETE FROM Doctors WHERE doctor_id = #{doctor_id}
+    </delete>
+
+    <select id="getAllDoctors" resultMap="doctorResultMap">
+        SELECT * FROM Doctors
+    </select>
+
+    <resultMap id="doctorResultMap" type="Doctors" autoMapping="false">
+        <id property="doctor_id" column="doctor_id"/>
+        <result property="address_id1" column="address_id1"/>
+        <result property="first_name" column="first_name"/>
+        <result property="last_name" column="last_name"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+    </resultMap>
+</mapper>

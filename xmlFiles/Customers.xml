@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="pharmacy.myBatis.MapperDAO.CustomerMapperDAO">
+
+    <select id="getCustomer" resultMap="customerResultMap">
+        SELECT * FROM Customers WHERE customer_id = #{customer_id}
+    </select>
+
+    <insert id="insertCustomer" parameterType="Customers">
+        INSERT INTO Customers (customer_id, address_id, first_name, last_name, phone)
+        VALUES (#{customer_id}, #{address_id}, #{first_name}, #{last_name}, #{phone})
+    </insert>
+
+    <update id="updateCustomer" parameterType="Customers">
+        UPDATE Customers SET address_id = #{address_id}, first_name = #{first_name}, last_name = #{last_name}, phone = #{phone}
+        WHERE customer_id = #{customer_id}
+    </update>
+
+    <delete id="deleteCustomer" parameterType="Customers">
+        DELETE FROM Customers WHERE customer_id = #{customer_id}
+    </delete>
+
+    <select id="getAllCustomers" resultMap="customerResultMap">
+        SELECT * FROM Customers
+    </select>
+
+    <resultMap id="customerResultMap" type="Customers" autoMapping="false">
+        <id property="customer_id" column="customer_id"/>
+        <result property="address_id" column="address_id"/>
+        <result property="first_name" column="first_name"/>
+        <result property="last_name" column="last_name"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+
+
+</mapper>

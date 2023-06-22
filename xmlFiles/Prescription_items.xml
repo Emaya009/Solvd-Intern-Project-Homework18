@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="pharmacy.myBatis.MapperDAO.Prescription_itemsMapperDAO">
+
+    <select id="getPrescription_id" resultMap="prescription_itemsResultMap">
+        SELECT * FROM Prescription_items WHERE id_num = #{id_num}
+    </select>
+
+    <insert id="insertPrescription" parameterType="Prescription_items">
+        INSERT INTO Prescription_items (id_num, prescription_id, medicine_id, quantity)
+        VALUES (#{id_num}, #{prescription_id}, #{medicine_id}, #{quantity})
+    </insert>
+
+    <update id="updatePrescription" parameterType="Prescription_items">
+        UPDATE Prescription_items SET prescription_id = #{prescription_id}, medicine_id = #{medicine_id}, quantity = #{quantity})
+        WHERE id_num = #{id_num}
+    </update>
+
+    <delete id="deletePrescription" parameterType="Prescription_items">
+        DELETE FROM Prescription_items WHERE id_num = #{id_num}
+    </delete>
+
+    <select id="getAllPrescription_items" resultMap="prescription_itemsResultMap">
+        SELECT * FROM Prescription_items
+    </select>
+
+    <resultMap id="prescription_itemsResultMap" type="Prescription_items" autoMapping="false">
+        <id property="id_num" column="id_num"/>
+        <result property="prescription_id" column="prescription_id"/>
+        <result property="medicine_id" column="medicine_id"/>
+        <result property="quantity" column="quantity"/>
+       </resultMap>
+</mapper>

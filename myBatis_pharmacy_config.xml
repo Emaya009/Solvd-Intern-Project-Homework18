@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="pharmacy.model.Customers" alias="Customers"/>
+        <typeAlias type="pharmacy.model.Addresses" alias="Addresses"/>
+        <typeAlias type="pharmacy.model.Doctors" alias="Doctors"/>
+        <typeAlias type="pharmacy.model.Prescription_items" alias="Prescription_items"/>
+        <typeAlias type="pharmacy.model.Medicine_orders" alias="Medicine_orders"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="xmlFiles/Customers.xml"/>
+        <mapper resource="xmlFiles/Address.xml"/>
+        <mapper resource="xmlFiles/Doctors.xml"/>
+        <mapper resource="xmlFiles/Medicine_orders.xml"/>
+        <mapper resource="xmlFiles/Prescription_items.xml"/>
+    </mappers>
+</configuration>

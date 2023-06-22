@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="pharmacy.myBatis.MapperDAO.Medicine_ordersMapperDAO">
+
+    <select id="getMedicineOrder" resultMap="medicine_ordersResultMap">
+        SELECT * FROM Medicine_orders WHERE order_id = #{order_id}
+    </select>
+
+    <insert id="insertMedicineOrder" parameterType="Medicine_orders">
+        INSERT INTO Medicine_orders (order_id, order_date, pay_date, customers_id, med_id, payment_mode, amount_paid, discount, status, comment, invoiceno)
+        VALUES (#{order_id}, #{order_date}, #{pay_date}, #{customers_id}, #{med_id}, #{payment_mode}, #{amount_paid}, #{discount}, #{status}, #{comment}, #{invoiceno})
+    </insert>
+
+    <update id="updateMedicineOrder" parameterType="Medicine_orders">
+        UPDATE Medicine_orders SET order_date = #{order_date}, pay_date = #{pay_date}, customers_id = #{customers_id}, med_id = #{med_id}, payment_mode = #{payment_mode}, amount_paid = #{amount_paid}, discount = #{discount}, status = #{status}, comment = #{comment}, invoiceno = #{invoiceno})
+        WHERE order_id = #{order_id}
+    </update>
+
+    <delete id="deleteMedicineOrder" parameterType="Medicine_orders">
+        DELETE FROM Medicine_orders WHERE order_id = #{order_id}
+    </delete>
+
+    <select id="getAllMedicines" resultMap="medicine_ordersResultMap">
+        SELECT * FROM Medicine_orders
+    </select>
+
+    <resultMap id="medicine_ordersResultMap" type="Medicine_orders" autoMapping="false">
+        <id property="order_id" column="order_id"/>
+        <result property="order_date" column="order_date"/>
+        <result property="pay_date" column="pay_date"/>
+        <result property="customers_id" column="customers_id"/>
+        <result property="med_id" column="med_id"/>
+        <result property="payment_mode" column="payment_mode"/>
+        <result property="amount_paid" column="amount_paid"/>
+        <result property="discount" column="discount"/>
+        <result property="status" column="status"/>
+        <result property="comment" column="comment"/>
+        <result property="invoiceno" column="invoiceno"/>
+    </resultMap>
+</mapper>

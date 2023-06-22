@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="pharmacy.myBatis.MapperDAO.AddressMapperDAO">
+
+    <select id="getAddress" resultMap="addressResultMap">
+        SELECT * FROM Addresses WHERE address_id = #{address_id}
+    </select>
+
+    <insert id="insertAddress" parameterType="Addresses">
+        INSERT INTO Addresses (address_id, street_name, city, state, country)
+        VALUES (#{address_id}, #{street_name}, #{city}, #{state}, #{country})
+    </insert>
+
+    <update id="updateAddress" parameterType="Addresses">
+        UPDATE Addresses SET street_name = #{street_name}, city = #{city}, state = #{state}, country = #{country}
+        WHERE address_id = #{address_id}
+    </update>
+
+    <delete id="deleteAddress" parameterType="Addresses">
+        DELETE FROM Addresses WHERE address_id = #{address_id}
+    </delete>
+
+    <select id="getAllAddress" resultMap="addressResultMap">
+        SELECT * FROM Addresses
+    </select>
+
+    <resultMap id="addressResultMap" type="Addresses" autoMapping="false">
+        <id property="address_id" column="address_id"/>
+        <result property="street_name" column="street_name"/>
+        <result property="city" column="city"/>
+        <result property="state" column="state"/>
+        <result property="country" column="country"/>
+    </resultMap>
+</mapper>
