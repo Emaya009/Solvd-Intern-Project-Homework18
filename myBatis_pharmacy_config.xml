@@ -10,6 +10,19 @@
         <typeAlias type="pharmacy.model.Medicine_orders" alias="Medicine_orders"/>
     </typeAliases>
 
+         <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
     <mappers>
         <mapper resource="xmlFiles/Customers.xml"/>
         <mapper resource="xmlFiles/Address.xml"/>
