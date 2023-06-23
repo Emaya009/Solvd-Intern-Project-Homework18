@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AddressesService {
+public class AddressesService implements AddressMapperDAO {
 
     Logger logger = LogManager.getLogger(AddressesService.class.getName());
     private SqlSessionFactory sqlSessionFactory;
