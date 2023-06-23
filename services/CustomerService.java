@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CustomerService {
+public class CustomerService implements CustomerMapperDAO {
 
     Logger logger = LogManager.getLogger(CustomerService.class.getName());
         private SqlSessionFactory sqlSessionFactory;
