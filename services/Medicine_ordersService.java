@@ -14,7 +14,7 @@ import java.io.Reader;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Medicine_ordersService {
+public class Medicine_ordersService implements Medicine_ordersMapperDAO {
     Logger logger = LogManager.getLogger(Medicine_ordersService.class.getName());
     private SqlSessionFactory sqlSessionFactory;
 
