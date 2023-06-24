@@ -24,10 +24,10 @@
 
 
     <mappers>
-        <mapper resource="xmlFiles/Customers.xml"/>
-        <mapper resource="xmlFiles/Address.xml"/>
-        <mapper resource="xmlFiles/Doctors.xml"/>
-        <mapper resource="xmlFiles/Medicine_orders.xml"/>
-        <mapper resource="xmlFiles/Prescription_items.xml"/>
+        <mapper resource="MapperxmlFiles/Customers.xml"/>
+        <mapper resource="MapperxmlFiles/Address.xml"/>
+        <mapper resource="MapperxmlFiles/Doctors.xml"/>
+        <mapper resource="MapperxmlFiles/Medicine_orders.xml"/>
+        <mapper resource="MapperxmlFiles/Prescription_items.xml"/>
     </mappers>
 </configuration>
